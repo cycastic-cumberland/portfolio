@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .linear-animation {
+        @apply transition-all duration-75 ease-linear
+    }
+    .text-gradient-highlight {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-highlight-light to-highlight
+    }
+    .text-hero-uncommon {
+        @apply text-font text-5xl
+    }
+    .text-hero-highlight-1 {
+        @apply text-5xl font-bold text-gradient-highlight
+    }
+    .text-hero-uncommon-sm {
+        @apply text-font font-bold text-xl p-1
+    }
+    .text-hero-highlight-1-sm {
+        @apply text-xl font-bold text-gradient-highlight
+    }
+    .text-hero-highlight-1-md {
+        @apply text-3xl font-bold text-gradient-highlight
+    }
+    .hamburger-button {
+        @apply inline-flex items-center justify-center p-2 rounded-md text-highlight hover:text-font hover:bg-highlight focus:outline-none focus:ring-2 focus:ring-inset focus:ring-highlight linear-animation
+    }
+    .navbar-title {
+        @apply flex-shrink-0 text-xl font-bold text-highlight hover:text-gradient-highlight
+    }
+    .navbar-section {
+        @apply text-font hover:text-primary hover:bg-highlight px-3 py-2 rounded-md text-sm font-medium linear-animation
+    }
+    .navbar-section-light {
+        @apply text-font hover:text-highlight linear-animation px-3 py-2 rounded-md text-sm font-medium font-bold
+    }
+    .navbar-section-mobile {
+        @apply text-font hover:text-primary hover:bg-highlight block px-3 py-2 rounded-md text-base font-medium linear-animation
+    }
+    .text-social-media {
+        @apply text-font text-sm font-medium group-hover:text-primary
+    }
+    .social-media-box {
+        @apply flex justify-center items-center flex-row hover:bg-highlight linear-animation mr-5 px-3 py-2 rounded-xl
+    }
+    .text-about {
+        @apply text-font text-2xl
+    }
+    .text-about-highlighted {
+        @apply text-gradient-highlight text-2xl font-bold
+    }
+    .text-about-sm {
+        @apply text-font text-xl
+    }
+    .text-about-highlighted-sm {
+        @apply text-gradient-highlight text-xl
+    }
+    .project-card {
+        @apply w-full h-full flex flex-col border-2 border-border rounded-2xl bg-card group-hover:bg-border linear-animation
+    }
+    .project-name {
+        @apply flex-shrink-0 text-font text-xl font-bold group-hover:text-highlight linear-animation
+    }
+    .project-description {
+        @apply text-font text-lg
+    }
+    .skills-title {
+        @apply text-highlight px-3 py-2 rounded-md text-2xl font-bold linear-animation
+    }
+    .skills-title-sm {
+        @apply text-highlight px-3 py-2 rounded-md text-xl font-bold linear-animation
+    }
+    .footer-text {
+        @apply text-footer
+    }
+}
+
+/*:root {*/
+/*  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;*/
+/*  line-height: 1.5;*/
+/*  font-weight: 400;*/
+
+/*  color-scheme: light dark;*/
+/*  color: rgba(255, 255, 255, 0.87);*/
+/*  background-color: #242424;*/
+
+/*  font-synthesis: none;*/
+/*  text-rendering: optimizeLegibility;*/
+/*  -webkit-font-smoothing: antialiased;*/
+/*  -moz-osx-font-smoothing: grayscale;*/
+/*}*/
+
+/*a {*/
+/*  font-weight: 500;*/
+/*  color: #646cff;*/
+/*  text-decoration: inherit;*/
+/*}*/
+/*a:hover {*/
+/*  color: #535bf2;*/
+/*}*/
+
+/*body {*/
+/*  margin: 0;*/
+/*  display: flex;*/
+/*  place-items: center;*/
+/*  min-width: 320px;*/
+/*  min-height: 100vh;*/
+/*}*/
+
+/*h1 {*/
+/*  font-size: 3.2em;*/
+/*  line-height: 1.1;*/
+/*}*/
+
+/*button {*/
+/*  border-radius: 8px;*/
+/*  border: 1px solid transparent;*/
+/*  padding: 0.6em 1.2em;*/
+/*  font-size: 1em;*/
+/*  font-weight: 500;*/
+/*  font-family: inherit;*/
+/*  background-color: #1a1a1a;*/
+/*  cursor: pointer;*/
+/*  transition: border-color 0.25s;*/
+/*}*/
+/*button:hover {*/
+/*  border-color: #646cff;*/
+/*}*/
+/*button:focus,*/
+/*button:focus-visible {*/
+/*  outline: 4px auto -webkit-focus-ring-color;*/
+/*}*/
+
+/*@media (prefers-color-scheme: light) {*/
+/*  :root {*/
+/*    color: #213547;*/
+/*    background-color: #ffffff;*/
+/*  }*/
+/*  a:hover {*/
+/*    color: #747bff;*/
+/*  }*/
+/*  button {*/
+/*    background-color: #f9f9f9;*/
+/*  }*/
+/*}*/
