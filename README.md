@@ -2,6 +2,12 @@
 
 ![capsule](images/markdown-capsule.png)
 
+## Deployment status
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/01c5bbce-d514-4355-ab0a-2cdb18de4838/deploy-status)](https://app.netlify.com/sites/nguyen-khanh-nam/deploys)
+
+Live at: https://nguyen-khanh-nam.netlify.app/
+
 ## Technologies used
 
 - NodeJS
