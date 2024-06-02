@@ -84,7 +84,9 @@ export const English: Record<string, string> = {
     notFoundSubText: 'Go back to the ',
     notFoundUrlText: 'home page',
 
-    credit: 'Designed by Nguyễn Khánh Nam',
+    credit: 'Designed by Nguyễn Khánh Nam. ',
+    creditSrc1: 'Check out this website\'s source code ',
+    creditSrc2: 'here',
 }
 
 export const Vietnamese: Record<string, string> = {
@@ -172,5 +174,7 @@ export const Vietnamese: Record<string, string> = {
     notFoundSubText: 'Quay trở về ',
     notFoundUrlText: 'trang chủ',
 
-    credit: 'Thiết kế bởi Nguyễn Khánh Nam',
+    credit: 'Thiết kế bởi Nguyễn Khánh Nam. ',
+    creditSrc1: 'Xem mã nguồn của trang web này ',
+    creditSrc2: 'tại đây',
 }

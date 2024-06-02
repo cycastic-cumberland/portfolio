@@ -3,7 +3,7 @@ import NavBar from "./NavBar.tsx";
 
 const PageLayout: FC<{ children?: ReactNode[] | ReactNode }> = ({ children }) => {
     return (
-        <div className={"w-screen min-h-screen h-full flex flex-col bg-primary"}>
+        <div className={"min-h-screen h-full flex flex-col bg-primary"}>
             <div className={"w-full h-full"}>
                 <NavBar/>
                 <div className={"w-full h-full flex flex-col items-center"}>

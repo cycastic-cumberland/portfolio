@@ -1,7 +1,7 @@
 import {useTranslation} from "../contexts/TranslationContext.tsx";
 import {Dispatch, FC, MutableRefObject, ReactNode, SetStateAction, useEffect, useRef, useState} from "react";
 import {Link, useLocation} from "react-router-dom";
-import {GithubPage, MailtoURL} from "../constants.ts";
+import {GithubPage, MailtoURL, WebsiteSourceCode} from "../constants.ts";
 import {FaGithub, FaRss} from "react-icons/fa";
 import {MdOutlineMail} from "react-icons/md";
 import {ProjectInfo} from "../contexts/ProjectsContextsType.ts";
@@ -452,16 +452,34 @@ const Skills = () => {
     </>
 }
 
+const FooterExtra = () => {
+    const { predefined } = useTranslation()
+
+    return <>
+        <span className={"footer-text"}>
+            { predefined.creditSrc1 }
+        </span>
+        <span className={"footer-text-url"}>
+            <Link to={WebsiteSourceCode}>
+                { predefined.creditSrc2 }
+            </Link>
+            .
+        </span>
+    </>
+}
+
 const Footer = () => {
     const { predefined } = useTranslation()
     return <>
         <div className={"h-40 bg-primary"} />
         <h4 className={"sm:block hidden footer-text p-6 border-border border-t-2"}>
             { predefined.credit }
+            <FooterExtra/>
         </h4>
         <div className={"sm:hidden block w-full text-center"}>
             <h4 className={"footer-text p-6 border-border border-t-2"}>
                 { predefined.credit }
+                <FooterExtra/>
             </h4>
         </div>
     </>
