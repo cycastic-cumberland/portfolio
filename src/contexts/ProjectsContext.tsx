@@ -1,7 +1,7 @@
 import React, {createContext, useContext, useEffect, useState} from "react";
 import {ProjectInfo, ProjectsContextType} from "./ProjectsContextsType.ts";
 
-const ProjectsContext = createContext<ProjectsContextType>(null as ProjectsContextType)
+const ProjectsContext = createContext<ProjectsContextType>(null as never as ProjectsContextType)
 
 export const useProjects = () => {
     return useContext(ProjectsContext)

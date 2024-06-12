@@ -2,7 +2,7 @@ import React, {createContext, useContext, useState} from "react";
 import {English, Vietnamese} from "../i18n.ts";
 import {TranslationContextType} from "./TranslationContextType.ts";
 
-const TranslationContext = createContext<TranslationContextType>(null as TranslationContextType);
+const TranslationContext = createContext<TranslationContextType>(null as never as TranslationContextType);
 
 const SupportedLanguages: Record<string, Record<string, string>> = {
     'english': English,
