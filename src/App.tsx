@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {AppRoutes} from "./AppRoutes.tsx";
 import {ProjectsProvider} from "./contexts/ProjectsContext.tsx";
 
+
 const App = () =>  {
     return (<TranslationProvider>
         <ProjectsProvider>

@@ -10,4 +10,5 @@ export type ProjectsContextType = {
     projectInfos: ProjectInfo[],
     trigger1: number,
     invokeTrigger1: () => void,
+    findProject: (id: string) => ProjectInfo | null
 }

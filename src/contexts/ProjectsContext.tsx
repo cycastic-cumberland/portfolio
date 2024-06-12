@@ -1,12 +1,7 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {createContext, useContext, useEffect, useState} from "react";
 import {ProjectInfo, ProjectsContextType} from "./ProjectsContextsType.ts";
-import astraCapsule from '../assets/astra-capsule.png'
-import cumailCapsule from '../assets/cumail-capsule.png'
-import libmanageCapsule from '../assets/libmanage-capsule.png'
-import newstalkerCapsule from '../assets/newstalker-capsule.png'
-import microjitCapsule from '../assets/microjit-capsule4.png'
 
-const ProjectsContext = React.createContext<ProjectsContextType>(null as never)
+const ProjectsContext = createContext<ProjectsContextType>(null as ProjectsContextType)
 
 export const useProjects = () => {
     return useContext(ProjectsContext)
@@ -22,25 +17,33 @@ export const ProjectsProvider: React.FC<{ children?: React.ReactNode }> = ({ chi
         setProjectInfos([
             {
                 id: 'astra',
-                capsuleUrl: astraCapsule,
+                capsuleUrl: '/assets/astra-capsule.png',
                 link: '/astra',
                 repoUrl: 'https://github.com/cycastic-cumberland/astra',
                 translations: {
                     english: {
                         name: 'Astra',
-                        shortDescription: 'Astra is a lightweight, tabular cache database, optimized for structured data queries.'
+                        shortDescription: 'Astra is a lightweight, tabular cache database, optimized for structured data queries.',
+
+                        tagline1: 'Speed',
+                        tagline2: 'meets',
+                        tagline3: 'sophistication ',
                         // Technologies used: .NET Core 8, B+Tree, LZ4, Docker
                     },
                     vietnamese: {
                         name: 'Astra',
-                        shortDescription: 'Astra là một cơ sở dữ liệu đệm được tối ưu hóa cho việc truy cập dữ liệu có cấu trúc.'
+                        shortDescription: 'Astra là một cơ sở dữ liệu đệm được tối ưu hóa cho việc truy cập dữ liệu có cấu trúc.',
+
+                        tagline1: 'Speed',
+                        tagline2: 'meets',
+                        tagline3: 'sophistication ',
                         // Công nghệ được sử dụng: .NET Core 8, B+Tree, LZ4, Docker
                     }
                 }
             },
             {
                 id: 'cumail',
-                capsuleUrl: cumailCapsule,
+                capsuleUrl: '/assets/cumail-capsule.png',
                 link: '/cumail',
                 repoUrl: 'https://github.com/cycastic-cumberland/cumail_next',
                 translations: {
@@ -58,7 +61,7 @@ export const ProjectsProvider: React.FC<{ children?: React.ReactNode }> = ({ chi
             },
             {
                 id: 'libmanage',
-                capsuleUrl: libmanageCapsule,
+                capsuleUrl: '/assets/libmanage-capsule.png',
                 link: '/libmanage',
                 repoUrl: 'https://github.com/cycastic-cumberland/libmanage-backend',
                 translations: {
@@ -76,7 +79,7 @@ export const ProjectsProvider: React.FC<{ children?: React.ReactNode }> = ({ chi
             },
             {
                 id: 'newstalker',
-                capsuleUrl: newstalkerCapsule,
+                capsuleUrl: '/assets/newstalker-capsule.png',
                 link: '/newstalker',
                 repoUrl: 'https://github.com/cycastic-cumberland/newstalker',
                 translations: {
@@ -94,7 +97,7 @@ export const ProjectsProvider: React.FC<{ children?: React.ReactNode }> = ({ chi
             },
             {
                 id: 'microjit',
-                capsuleUrl: microjitCapsule,
+                capsuleUrl: '/assets/microjit-capsule.png',
                 link: '/microjit',
                 repoUrl: 'https://github.com/cycastic-cumberland/microjit',
                 translations: {
@@ -113,10 +116,18 @@ export const ProjectsProvider: React.FC<{ children?: React.ReactNode }> = ({ chi
         ])
     }, []);
 
+    const findProject = (id: string) => {
+        for (let i = 0; i < projectInfos.length; i++){
+            if (projectInfos[i].id === id) return projectInfos[i];
+        }
+        return null;
+    }
+
     const value: ProjectsContextType = {
         projectInfos,
         trigger1,
-        invokeTrigger1
+        invokeTrigger1,
+        findProject
     }
 
     return (<ProjectsContext.Provider value={value} >

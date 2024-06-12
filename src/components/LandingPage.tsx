@@ -1,5 +1,5 @@
 import {useTranslation} from "../contexts/TranslationContext.tsx";
-import {Dispatch, FC, MutableRefObject, ReactNode, SetStateAction, useEffect, useRef, useState} from "react";
+import {FC, MutableRefObject, useEffect, useRef} from "react";
 import {Link, useLocation} from "react-router-dom";
 import {GithubPage, MailtoURL, WebsiteSourceCode} from "../constants.ts";
 import {FaGithub, FaRss} from "react-icons/fa";
@@ -7,7 +7,7 @@ import {MdOutlineMail} from "react-icons/md";
 import {ProjectInfo} from "../contexts/ProjectsContextsType.ts";
 import {useProjects} from "../contexts/ProjectsContext.tsx";
 import PageLayout from "./PageLayout.tsx";
-import pfp from '../assets/its-a-me.png'
+import SocialMediaItem from "./SocialMediaItem.tsx";
 
 const getGreeting = (languageSet: Record<string, string>) => {
     const hours = new Date().getHours();
@@ -92,17 +92,6 @@ const HeroSection = () => {
     </div>
 }
 
-const SocialMediaItem: FC<{ text: string, url: string, icon: ReactNode }> = ({ text, url, icon }) => {
-    return (
-        <Link to={url} className={"social-media-box group"}>
-            <div className={"mr-2 w-8 h-8 bg-font rounded-full flex justify-center items-center"}>
-                {icon}
-            </div>
-            <div className={"text-social-media"}>
-                {text}
-            </div>
-        </Link>)
-}
 
 const SocialMedia = () => {
     const { predefined } = useTranslation();
@@ -130,7 +119,7 @@ const ProjectShowcase: FC<{ info: ProjectInfo }> = ({ info }) => {
 
     return (
         <>
-            <Link to={info.link} className={"sm:block hidden group w-96 aspect-square"}>
+            <Link to={info.repoUrl} className={"sm:block hidden group w-96 aspect-square"}>
                 <div className={"px-2 py-2 w-full h-full"}>
                     <div className={"project-card"}>
                         <img className={"rounded-tl-2xl rounded-tr-2xl h-48 object-cover"} alt={info.id} src={info.capsuleUrl} />
@@ -233,8 +222,8 @@ const MyProjects = () => {
 
 const ProfilePictureDisplay = () => {
     return <>
-        <img className={"sm:block hidden w-96 aspect-square rounded-full"} alt={'profile-picture'} src={pfp} />
-        <img className={"sm:hidden block w-64 aspect-square rounded-full"} alt={'profile-picture'} src={pfp} />
+        <img className={"sm:block hidden w-96 aspect-square rounded-full"} alt={'profile-picture'} src={'/assets/its-a-me.png'} />
+        <img className={"sm:hidden block w-64 aspect-square rounded-full"} alt={'profile-picture'} src={'/assets/its-a-me.png'} />
     </>
 }
 
@@ -248,7 +237,7 @@ const About = () => {
                         {predefined.introTitle}
                     </div>
                 </div>
-                <div className={"flex flex-wrap w-full mt-4"}>
+                <div className={"flex flex-wrap w-full mt-4 lg:justify-between justify-center"}>
                     <div className={"max-w-4xl mr-8"}>
                         <h4 className={"text-about"}>
                             {predefined.introDesc1p1}
@@ -335,32 +324,15 @@ const About = () => {
     </div>)
 }
 
+const LogoWrap: FC<{ alt: string, src: string }> = ({ alt, src }) => {
+    return <div className={"ml-5 mt-5 flex rounded-full bg-font w-16 h-16 justify-center items-center"}>
+        <img className={"w-10"} alt={alt} src={src}/>
+    </div>
+}
+
+
 const Skills = () => {
     const { predefined } = useTranslation()
-    const [languages, setLanguages] = useState([] as string[])
-    const [technologies, setTechnologies] = useState([] as string[])
-    const [databases, setDatabases] = useState([] as string[])
-    const [tools, setTools] = useState([] as string[])
-
-    useEffect(() => {
-        const quickSet = (initial: string, setter: Dispatch<SetStateAction<string[]>>) => {
-            const arr = []
-            for (let i = 1; ; i++){
-                const key = `${initial}${i}`
-                if (predefined[key] !== undefined) {
-                    arr.push(predefined[key])
-                    continue
-                }
-                break
-            }
-            setter(arr)
-        }
-
-        quickSet('skillsLanguage', setLanguages)
-        quickSet('skillsTechnology', setTechnologies)
-        quickSet('skillsDatabase', setDatabases)
-        quickSet('skillsTool', setTools)
-    }, [predefined]);
 
     return <>
         <div className={"sm:block hidden opacity-0 animate-slidein [--slidein-delay:900ms]"}>
@@ -371,37 +343,58 @@ const Skills = () => {
                     </div>
                 </div>
                 <div className={"flex flex-row w-full mt-4"}>
-                    <div className={"w-full flex flex-col text-center"}>
+                    <div className={"w-full flex flex-col items-center text-center"}>
                         <h4 className={"skills-title"}>
                             { predefined.skillsLanguages }
                         </h4>
-                        { languages.map((value, index) => {
-                            return <p key={index} className={"project-description"}>{ value }</p>
-                        }) }
+
+                        <LogoWrap alt={"csharp"} src={"/assets/logos/csharp.svg"}/>
+                        <LogoWrap alt={"cpp"} src={"/assets/logos/cplusplus.svg"}/>
+                        <LogoWrap alt={"typescript"} src={"/assets/logos/typescript.svg"}/>
+                        <LogoWrap alt={"javascript"} src={"/assets/logos/javascript.svg"}/>
+                        <LogoWrap alt={"java"} src={"/assets/logos/openjdk.svg"}/>
+                        <LogoWrap alt={"rust"} src={"/assets/logos/rust.svg"}/>
+                        <LogoWrap alt={"python"} src={"/assets/logos/python.svg"}/>
                     </div>
                     <div className={"w-full flex flex-col text-center"}>
                         <h4 className={"skills-title"}>
                             { predefined.skillsTechnologies }
                         </h4>
-                        { technologies.map((value, index) => {
-                            return <p key={index} className={"project-description"}>{ value }</p>
-                        }) }
+
+                        <div className={"flex w-full flex-row justify-center"}>
+                            <div className={"flex flex-col items-center mr-8"}>
+                                <LogoWrap alt={"cmake"} src={"/assets/logos/cmake.svg"}/>
+                                <LogoWrap alt={"dotnet"} src={"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-plain.svg"}/>
+                                <LogoWrap alt={"spring"} src={"/assets/logos/spring.svg"}/>
+                                <LogoWrap alt={"actix"} src={"/assets/logos/actix.svg"}/>
+                                <LogoWrap alt={"nodejs"} src={"/assets/logos/nodedotjs.svg"}/>
+                                <LogoWrap alt={"react"} src={"/assets/logos/react.svg"}/>
+                            </div>
+                            <div className={"flex flex-col items-center"}>
+                                <LogoWrap alt={"tailwindcss"} src={"/assets/logos/tailwindcss.svg"}/>
+                                <LogoWrap alt={"vite"} src={"/assets/logos/vite.svg"}/>
+                                <LogoWrap alt={"firebase"} src={"/assets/logos/firebase.svg"}/>
+                                <LogoWrap alt={"git"} src={"/assets/logos/git.svg"}/>
+                                <LogoWrap alt={"docker"} src={"/assets/logos/docker.svg"}/>
+                            </div>
+                        </div>
                     </div>
-                    <div className={"w-full flex flex-col text-center"}>
+                    <div className={"w-full flex flex-col items-center text-center"}>
                         <h4 className={"skills-title"}>
                             { predefined.skillsDatabases }
                         </h4>
-                        { databases.map((value, index) => {
-                            return <p key={index} className={"project-description"}>{ value }</p>
-                        }) }
+                        <LogoWrap alt={"postgresql"} src={"/assets/logos/postgresql.svg"}/>
+                        <LogoWrap alt={"redis"} src={"/assets/logos/redis.svg"}/>
+                        <LogoWrap alt={"mysql"} src={"/assets/logos/mysql.svg"}/>
                     </div>
-                    <div className={"w-full flex flex-col text-center"}>
+                    <div className={"w-full flex flex-col items-center text-center"}>
                         <h4 className={"skills-title"}>
                             { predefined.skillsTools }
                         </h4>
-                        { tools.map((value, index) => {
-                            return <p key={index} className={"project-description"}>{ value }</p>
-                        }) }
+                        <LogoWrap alt={"arch"} src={"/assets/logos/archlinux.svg"}/>
+                        <LogoWrap alt={"visualstudio"} src={"/assets/logos/visualstudio.svg"}/>
+                        <LogoWrap alt={"visualstudiocode"} src={"/assets/logos/visualstudiocode.svg"}/>
+                        <LogoWrap alt={"jetbrains"} src={"/assets/logos/jetbrains.svg"}/>
                     </div>
                 </div>
             </div>
@@ -418,33 +411,54 @@ const Skills = () => {
                         <h4 className={"skills-title-sm"}>
                             { predefined.skillsLanguages }
                         </h4>
-                        { languages.map((value, index) => {
-                            return <p key={index} className={"project-description"}>{ value }</p>
-                        }) }
+                        <div className={"flex flex-wrap"}>
+                            <LogoWrap alt={"csharp"} src={"/assets/logos/csharp.svg"}/>
+                            <LogoWrap alt={"cpp"} src={"/assets/logos/cplusplus.svg"}/>
+                            <LogoWrap alt={"typescript"} src={"/assets/logos/typescript.svg"}/>
+                            <LogoWrap alt={"javascript"} src={"/assets/logos/javascript.svg"}/>
+                            <LogoWrap alt={"java"} src={"/assets/logos/openjdk.svg"}/>
+                            <LogoWrap alt={"rust"} src={"/assets/logos/rust.svg"}/>
+                            <LogoWrap alt={"python"} src={"/assets/logos/python.svg"}/>
+                        </div>
                     </div>
                     <div className={"w-full flex flex-col text-center"}>
                         <h4 className={"skills-title-sm"}>
                             { predefined.skillsTechnologies }
                         </h4>
-                        { technologies.map((value, index) => {
-                            return <p key={index} className={"project-description"}>{ value }</p>
-                        }) }
+                        <div className={"flex flex-wrap"}>
+                            <LogoWrap alt={"cmake"} src={"/assets/logos/cmake.svg"}/>
+                            <LogoWrap alt={"dotnet"} src={"/assets/logos/dotnet.svg"}/>
+                            <LogoWrap alt={"spring"} src={"/assets/logos/spring.svg"}/>
+                            <LogoWrap alt={"actix"} src={"/assets/logos/actix.svg"}/>
+                            <LogoWrap alt={"nodejs"} src={"/assets/logos/nodedotjs.svg"}/>
+                            <LogoWrap alt={"react"} src={"/assets/logos/react.svg"}/>
+                            <LogoWrap alt={"tailwindcss"} src={"/assets/logos/tailwindcss.svg"}/>
+                            <LogoWrap alt={"vite"} src={"/assets/logos/vite.svg"}/>
+                            <LogoWrap alt={"firebase"} src={"/assets/logos/firebase.svg"}/>
+                            <LogoWrap alt={"git"} src={"/assets/logos/git.svg"}/>
+                            <LogoWrap alt={"docker"} src={"/assets/logos/docker.svg"}/>
+                        </div>
                     </div>
-                    <div className={"w-full flex flex-col text-center"}>
+                    <div className={"w-full flex flex-col items-center text-center"}>
                         <h4 className={"skills-title-sm"}>
                             { predefined.skillsDatabases }
                         </h4>
-                        { databases.map((value, index) => {
-                            return <p key={index} className={"project-description"}>{ value }</p>
-                        }) }
+                        <div className={"flex flex-wrap"}>
+                            <LogoWrap alt={"postgresql"} src={"/assets/logos/postgresql.svg"}/>
+                            <LogoWrap alt={"redis"} src={"/assets/logos/redis.svg"}/>
+                            <LogoWrap alt={"mysql"} src={"/assets/logos/mysql.svg"}/>
+                        </div>
                     </div>
-                    <div className={"w-full flex flex-col text-center"}>
+                    <div className={"w-full flex flex-col items-center text-center"}>
                         <h4 className={"skills-title-sm"}>
                             { predefined.skillsTools }
                         </h4>
-                        { tools.map((value, index) => {
-                            return <p key={index} className={"project-description"}>{ value }</p>
-                        }) }
+                        <div className={"flex flex-wrap"}>
+                            <LogoWrap alt={"arch"} src={"/assets/logos/archlinux.svg"}/>
+                            <LogoWrap alt={"visualstudio"} src={"/assets/logos/visualstudio.svg"}/>
+                            <LogoWrap alt={"visualstudiocode"} src={"/assets/logos/visualstudiocode.svg"}/>
+                            <LogoWrap alt={"jetbrains"} src={"/assets/logos/jetbrains.svg"}/>
+                        </div>
                     </div>
                 </div>
             </div>
