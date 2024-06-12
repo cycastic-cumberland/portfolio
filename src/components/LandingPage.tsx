@@ -134,7 +134,7 @@ const ProjectShowcase: FC<{ info: ProjectInfo }> = ({ info }) => {
                     </div>
                 </div>
             </Link>
-            <Link to={info.link} className={"sm:hidden block group w-full min-h-fit aspect-square"}>
+            <Link to={info.repoUrl} className={"sm:hidden block group w-full min-h-fit aspect-square"}>
                 <div className={"px-2 py-2 w-full h-full"}>
                     <div className={"project-card"}>
                         <img className={"rounded-tl-2xl rounded-tr-2xl h-1/2 object-cover"} alt={info.id} src={info.capsuleUrl} />
