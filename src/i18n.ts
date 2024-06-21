@@ -66,6 +66,11 @@ export const English: Record<string, string> = {
     firestoreTestRunning: "Connecting...",
     firestoreTestSuccess: "Successfully connected to Firestore.",
     firestoreTestFailed: "Failed to connect to Firestore.",
+
+    redirectHeader: "This website has been moved to another location",
+    redirectText1: "Press ",
+    redirectText2: "here ",
+    redirectText3: "if you are not redirected automatically."
 }
 
 export const Vietnamese: Record<string, string> = {
@@ -135,4 +140,9 @@ export const Vietnamese: Record<string, string> = {
     firestoreTestRunning: "Đang kết nối...",
     firestoreTestSuccess: "Kết nối đến Firestore thành công.",
     firestoreTestFailed: "Kết nối đến Firestore thất bại.",
+
+    redirectHeader: "Trang web này đã được di chuyển đến một tên miền khác",
+    redirectText1: "Bấm vào ",
+    redirectText2: "đây ",
+    redirectText3: "nếu bạn không được chuyển hướng tự động."
 }
