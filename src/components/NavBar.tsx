@@ -73,7 +73,7 @@ const InnerNavbar: FC<{ isPhantom: boolean, preset: Preset, toggleLanguage: () =
                             <div className="flex space-x-4">
                                 <Link to="/" className="navbar-section-light">{ predefined.navHome }</Link>
                                 <Link to="/#projects" className="navbar-section-light">{ predefined.navWork }</Link>
-                                <Link to="/blogs" className="navbar-section-light">{ predefined.navBlogs }</Link>
+                                <Link to="/blog" className="navbar-section-light">{ predefined.navBlogs }</Link>
                                 <Link to="/#about" className="navbar-section-light">{ predefined.navAbout }</Link>
                                 <Link to={MailtoURL} className="navbar-section-light">{ predefined.navContact }</Link>
                                 <button onClick={toggleLanguage} className="navbar-section">{ preset.flag }</button>
@@ -89,7 +89,7 @@ const InnerNavbar: FC<{ isPhantom: boolean, preset: Preset, toggleLanguage: () =
                     <div className={`px-2 pt-2 pb-3 space-y-1 ${isOnTop ? "border-b-2 border-border" : ""}`}>
                         <Link to="/" className="navbar-section-mobile">{ predefined.navHome }</Link>
                         <Link to="/#projects" className="navbar-section-mobile">{ predefined.navWork }</Link>
-                        <Link to="/blogs" className="navbar-section-mobile">{ predefined.navBlogs }</Link>
+                        <Link to="/blog" className="navbar-section-mobile">{ predefined.navBlogs }</Link>
                         <Link to="/#about" className="navbar-section-mobile">{ predefined.navAbout }</Link>
                         <Link to={MailtoURL} className="navbar-section-mobile">{ predefined.navContact }</Link>
                         <div onClick={toggleLanguage} className="w-full navbar-section-mobile cursor-pointer">

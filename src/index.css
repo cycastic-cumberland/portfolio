@@ -81,4 +81,13 @@
     .footer-text-url {
         @apply text-highlight
     }
+    .text-author {
+        @apply text-font text-xl font-medium
+    }
+    .text-author-bold {
+        @apply text-font text-xl font-bold
+    }
+    .text-blog-entry-title {
+        @apply text-font text-3xl font-bold
+    }
 }

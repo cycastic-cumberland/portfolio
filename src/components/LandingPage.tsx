@@ -100,14 +100,14 @@ const SocialMedia = () => {
         <div className={"hidden sm:block"}>
             <div className={"flex flex-wrap mb-5 opacity-0 animate-slidein [--slidein-delay:900ms]"}>
                 <SocialMediaItem text={predefined.smItem1} url={GithubPage} icon={<FaGithub size={20}/>}/>
-                <SocialMediaItem text={predefined.smItem2} url={'/blogs'} icon={<FaRss size={20}/>}/>
+                <SocialMediaItem text={predefined.smItem2} url={'/blog'} icon={<FaRss size={20}/>}/>
                 <SocialMediaItem text={predefined.smItem3} url={MailtoURL} icon={<MdOutlineMail size={20}/>}/>
             </div>
         </div>
         <div className={"sm:hidden block"}>
             <div className={"flex flex-wrap justify-center mb-5 opacity-0 animate-slidein [--slidein-delay:500ms]"}>
                 <SocialMediaItem text={predefined.smItem1} url={GithubPage} icon={<FaGithub size={16}/>}/>
-                <SocialMediaItem text={predefined.smItem2} url={'/blogs'} icon={<FaRss size={16}/>}/>
+                <SocialMediaItem text={predefined.smItem2} url={'/blog'} icon={<FaRss size={16}/>}/>
                 <SocialMediaItem text={predefined.smItem3} url={MailtoURL} icon={<MdOutlineMail size={16}/>}/>
             </div>
         </div>
@@ -325,8 +325,8 @@ const About = () => {
 }
 
 const LogoWrap: FC<{ alt: string, src: string }> = ({ alt, src }) => {
-    return <div className={"ml-5 mt-5 flex rounded-full bg-font w-16 h-16 justify-center items-center"}>
-        <img className={"w-10"} alt={alt} src={src}/>
+    return <div className={"mx-2 my-2 flex rounded-full bg-font w-16 h-16 justify-center items-center"}>
+        <img title={alt} className={"w-10"} alt={alt} src={src}/>
     </div>
 }
 

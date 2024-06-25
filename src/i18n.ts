@@ -1,5 +1,6 @@
 export const English: Record<string, string> = {
     id: "english",
+    locale: 'en-US',
     test: "test",
 
     miscLangText: 'Language: ',
@@ -18,7 +19,7 @@ export const English: Record<string, string> = {
     heroHeader2inline1: "Nguyễn Khánh Nam",
     heroHeader2inline2: ".",
     heroHeader3: "I'm a",
-    heroHeader3inline1: "software engineer",
+    heroHeader3inline1: "programmer",
     heroHeader3inline2: "in HCMC, Vietnam.",
     heroHeader4: "",
 
@@ -45,7 +46,6 @@ export const English: Record<string, string> = {
     skillsDatabases: 'Databases',
     skillsTools: 'Tools',
 
-
     myWorksTitle: 'My projects',
     myWorksFullRepo: 'More on Github',
 
@@ -64,17 +64,29 @@ export const English: Record<string, string> = {
     creditSrc2: 'here',
 
     firestoreTestRunning: "Connecting...",
-    firestoreTestSuccess: "Successfully connected to Firestore.",
-    firestoreTestFailed: "Failed to connect to Firestore.",
+    firestoreTestSuccess: "Successfully connected to Pocketbase.",
+    firestoreTestFailed: "Failed to connect to Pocketbase.",
 
     redirectHeader: "This website has been moved to another location",
     redirectText1: "Press ",
     redirectText2: "here ",
-    redirectText3: "if you are not redirected automatically."
+    redirectText3: "if you are not redirected automatically.",
+
+    blogPendingTitle: "Loading blog...",
+    blogNotFoundTitle: "Blog not found",
+    blogNotFoundSubtext1: "Return to ",
+    blogNotFoundSubtext2: "all blogs",
+    blogNoLang: "This blog does not have an English translation.",
+    blogBy: "By",
+    blogAt: "at",
+    blogNoTag: "No blog with provided tag found",
+    blogNoBlogTitle: "There is no blog yet",
+    blogNoBlogSubtext: "Please be patient, I am writing one",
 }
 
 export const Vietnamese: Record<string, string> = {
     id: "vietnamese",
+    locale: 'vi-VN',
     test: "test",
 
     miscLangText: 'Ngôn ngữ: ',
@@ -93,7 +105,7 @@ export const Vietnamese: Record<string, string> = {
     heroHeader2inline1: "Nguyễn Khánh Nam",
     heroHeader2inline2: ".",
     heroHeader3: "Tôi là một",
-    heroHeader3inline1: "kỹ sư phần mềm",
+    heroHeader3inline1: "lập trình viên",
     heroHeader3inline2: "tại TP.HCM, Việt Nam.",
     heroHeader4: "",
 
@@ -102,7 +114,7 @@ export const Vietnamese: Record<string, string> = {
     smItem3: "Email",
 
     introTitle: "Về tôi",
-    introDesc1p1: "Xin chào! Tôi tên là Nguyễn Khánh Nam, một kỹ sư phần mềm chuyên về ",
+    introDesc1p1: "Xin chào! Tôi tên là Nguyễn Khánh Nam, một lập trình viên chuyên về ",
     introDesc1p2: 'ứng dụng web full-stack',
     introDesc1p3: '. Tôi có nhiều kỹ năng giải quyết vấn đề và kiến thức về ',
     introDesc1p4: 'Cấu trúc Dữ liệu & Giải thuật',
@@ -138,11 +150,22 @@ export const Vietnamese: Record<string, string> = {
     creditSrc2: 'tại đây',
 
     firestoreTestRunning: "Đang kết nối...",
-    firestoreTestSuccess: "Kết nối đến Firestore thành công.",
-    firestoreTestFailed: "Kết nối đến Firestore thất bại.",
+    firestoreTestSuccess: "Kết nối đến Pocketbase thành công.",
+    firestoreTestFailed: "Kết nối đến Pocketbase thất bại.",
 
     redirectHeader: "Trang web này đã được di chuyển đến một tên miền khác",
     redirectText1: "Bấm vào ",
     redirectText2: "đây ",
-    redirectText3: "nếu bạn không được chuyển hướng tự động."
+    redirectText3: "nếu bạn không được chuyển hướng tự động.",
+
+    blogPendingTitle: "Đang tải blog...",
+    blogNotFoundTitle: "Không tìm thấy blog",
+    blogNotFoundSubtext1: "Quay về ",
+    blogNotFoundSubtext2: "tất cả blogs",
+    blogNoLang: "Blog này không có bản dịch Tiếng Việt.",
+    blogBy: "Bởi",
+    blogAt: "vào",
+    blogNoTag: "Không có bài blog nào với thẻ đã cung cấp được tìm thấy",
+    blogNoBlogTitle: "Chưa có bài blog nào cả",
+    blogNoBlogSubtext: "Xin hãy kiên nhẫn, tôi đang viết nó đây",
 }

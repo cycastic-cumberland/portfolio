@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    h1 {
+        @apply text-3xl font-bold text-font
+    }
+    h2 {
+        @apply text-2xl font-bold text-font
+    }
+    h3 {
+        @apply text-lg font-bold text-font
+    }
+    table {
+        @apply table-auto w-full text-sm text-left rtl:text-right text-font
+    }
+    img{
+        @apply my-4 flex flex-row justify-center items-center content-center
+    }
+}

@@ -1,24 +1,23 @@
 import PageLayout from "./PageLayout.tsx";
 import {useEffect, useState} from "react";
-import { collection, getDocs } from "firebase/firestore";
-import {Database} from "../firebase_app.ts";
 import {useTranslation} from "../contexts/TranslationContext.tsx";
+import PocketbaseApp from "../pocketbase_app.ts";
 
-const FirestoreTest = () => {
+const PocketbaseTest = () => {
     const { predefined } = useTranslation()
     const [state, setState] = useState<"running" | "success" | "failed">("running")
 
-    const callFirestore = async () => {
+    const callPocketbase = async () => {
         try {
-            const docRef = (await getDocs(collection(Database, "test")));
-            setState(docRef.docs.length > 0 ? "success" : "failed");
+            const results = await PocketbaseApp().collection("test").getList(1, 1);
+            setState(results.items.length > 0 ? "success" : "failed");
         } catch (e){
             setState("failed")
         }
     }
 
     useEffect(() => {
-        callFirestore().then(() => {})
+        callPocketbase().then(() => {})
     }, []);
 
     return <PageLayout>
@@ -39,4 +38,4 @@ const FirestoreTest = () => {
     </PageLayout>
 }
 
-export default FirestoreTest;
+export default PocketbaseTest;

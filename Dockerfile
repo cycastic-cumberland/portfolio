@@ -10,6 +10,9 @@ COPY . .
 
 ENV NODE_ENV production
 
+ARG VITE_POCKETBASE_URL
+
+RUN echo "${VITE_POCKETBASE_URL}" > /.env
 RUN npm run build
 
 FROM nginx:1.25.3-alpine-slim

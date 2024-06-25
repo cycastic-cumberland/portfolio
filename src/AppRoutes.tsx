@@ -1,8 +1,9 @@
 import LandingPage from "./components/LandingPage.tsx";
 import {ReactNode} from "react";
-import FeatureComingSoon from "./components/FeatureComingSoon.tsx";
 import NotFound from "./components/NotFound.tsx";
-import FirestoreTest from "./components/FirestoreTest.tsx";
+import PocketbaseTest from "./components/PocketbaseTest.tsx";
+import BlogRender from "./components/blog/BlogRender.tsx";
+import Blogs from "./components/blog/Blogs.tsx";
 
 export type RouteInfo = { index?: boolean, path?: string, element: ReactNode };
 
@@ -12,12 +13,16 @@ export const AppRoutes : RouteInfo[] = [
         element: <LandingPage />,
     },
     {
-        path: '/blogs',
-        element: <FeatureComingSoon/>
+        path: '/blog',
+        element: <Blogs/>
     },
     {
-        path: "/firestore_state",
-        element: <FirestoreTest/>
+        path: '/blog/:blogId',
+        element: <BlogRender/>
+    },
+    {
+        path: "/pocketbase-state",
+        element: <PocketbaseTest/>
     },
     {
         path: '*',
