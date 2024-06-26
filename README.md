@@ -2,10 +2,6 @@
 
 ![capsule](images/markdown-capsule.png)
 
-## Deployment status
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/01c5bbce-d514-4355-ab0a-2cdb18de4838/deploy-status)](https://app.netlify.com/sites/nguyen-khanh-nam/deploys)
-
 Live at: https://nguyen-khanh-nam.netlify.app/
 
 ## Technologies used
@@ -15,6 +11,8 @@ Live at: https://nguyen-khanh-nam.netlify.app/
 - Typescript
 - TailwindCSS
 - Vite
+- Pocketbase
+- Nginx
 
 ## Features
 
@@ -36,4 +34,16 @@ In case you want to run it in a docker container, run
 docker build -t your_tag:latest .
 ```
 
-This docker image will use nginx. Bind the container to port 80 and you are good to go.
+To be able to use the blogging feature, first import the collection schema at `pb_collections.json` into your Pocketbase app.
+
+Create a `.env` file and add your Pocketbase URL:
+
+```
+VITE_POCKETBASE_URL=https://your-pocketbase-url.com/
+```
+
+To build the Docker image with blogging enabled, simply add this build flag:
+
+```shell
+docker build --build-arg VITE_POCKETBASE_URL=https://your-pocketbase-url.com/ -t your_tag:latest .
+```

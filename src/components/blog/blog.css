@@ -15,7 +15,4 @@
     table {
         @apply table-auto w-full text-sm text-left rtl:text-right text-font
     }
-    img{
-        @apply my-4 flex flex-row justify-center items-center content-center
-    }
 }

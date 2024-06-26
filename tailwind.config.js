@@ -15,7 +15,6 @@ export default {
         'footer': '#a0a0a0',
       },
       keyframes: {
-
         slidein: {
           from: {
             opacity: "0",
