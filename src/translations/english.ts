@@ -47,7 +47,7 @@ const English: Record<string, string> = {
     skillsTools: 'Tools',
 
     myWorksTitle: 'My projects',
-    myWorksFullRepo: 'More on Github',
+    myWorksFullRepo: 'View more projects',
 
     introductoryWIPTitle: 'Introductory page work in progress',
     introductoryWIPSubtext: 'Check out this project\'s repository ',

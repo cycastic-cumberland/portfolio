@@ -2,7 +2,7 @@ import {useTranslation} from "../contexts/TranslationContext.tsx";
 import {FC, MutableRefObject, useEffect, useRef} from "react";
 import {Link, useLocation} from "react-router-dom";
 import {GithubPage, MailtoURL, WebsiteSourceCode} from "../constants.ts";
-import {FaGithub} from "react-icons/fa";
+import {FaGithub, FaExternalLinkAlt} from "react-icons/fa";
 import {MdOutlineMail} from "react-icons/md";
 import {useProjects} from "../contexts/ProjectsContext.tsx";
 import PageLayout from "./PageLayout.tsx";
@@ -157,12 +157,12 @@ const GithubShowcase = () => {
     const { predefined } = useTranslation()
 
     return <>
-        <Link to={GithubPage} className={"sm:block hidden group w-96 aspect-square"}>
+        <Link to={"/projects"} className={"sm:block hidden group w-96 aspect-square"}>
             <div className={"px-2 py-2 w-full h-full"}>
                 <div className={"project-card justify-center items-center text-center"}>
                     <div className={"flex flex-col justify-center items-center text-center"}>
                         <div className={"mr-2 w-16 h-16 bg-font rounded-full flex justify-center items-center"}>
-                            <FaGithub size={50}/>
+                            <FaExternalLinkAlt size={30}/>
                         </div>
                         <p className={"project-description mt-2"}>
                             { predefined.myWorksFullRepo }
@@ -171,7 +171,7 @@ const GithubShowcase = () => {
                 </div>
             </div>
         </Link>
-        <Link to={GithubPage} className={"sm:hidden block group w-full aspect-square"}>
+        <Link to={"/projects"} className={"sm:hidden block group w-full aspect-square"}>
             <div className={"px-2 py-2 w-full h-full"}>
                 <div className={"project-card justify-center items-center text-center"}>
                     <div className={"mr-2 w-16 h-16 bg-font rounded-full flex justify-center items-center"}>

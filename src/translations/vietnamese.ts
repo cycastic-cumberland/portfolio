@@ -47,7 +47,7 @@ const Vietnamese: Record<string, string> = {
     skillsTools: 'Công cụ',
 
     myWorksTitle: 'Sản phẩm của tôi',
-    myWorksFullRepo: 'Xem thêm tại Github',
+    myWorksFullRepo: 'Xem thêm dự án',
 
     introductoryWIPTitle: 'Trang giới thiệu đang được hoàn thiện',
     introductoryWIPSubtext: 'Theo dõi trang repository của dự án này tại ',
