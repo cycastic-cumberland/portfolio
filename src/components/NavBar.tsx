@@ -3,10 +3,11 @@ import {FC, useEffect, useState} from 'react';
 import {useTranslation} from "../contexts/TranslationContext.tsx";
 import {Link} from "react-router-dom";
 import {MailtoURL} from "../constants.ts";
+import {SupportedLanguage} from "../contexts/TranslationContextType.ts";
 
 type Preset = {
     flag: string,
-    languageName: string
+    languageName: SupportedLanguage
 }
 
 const PredefinedLanguages: Preset[] = [
@@ -72,8 +73,8 @@ const InnerNavbar: FC<{ isPhantom: boolean, preset: Preset, toggleLanguage: () =
                         <div className="min-w-fit hidden sm:block sm:ml-6">
                             <div className="flex space-x-4">
                                 <Link to="/" className="navbar-section-light">{ predefined.navHome }</Link>
-                                <Link to="/#projects" className="navbar-section-light">{ predefined.navWork }</Link>
-                                <Link to="/blog" className="navbar-section-light">{ predefined.navBlogs }</Link>
+                                <Link to="/projects" className="navbar-section-light">{ predefined.navWork }</Link>
+                                {/*<Link to="/blog" className="navbar-section-light">{ predefined.navBlogs }</Link>*/}
                                 <Link to="/#about" className="navbar-section-light">{ predefined.navAbout }</Link>
                                 <Link to={MailtoURL} className="navbar-section-light">{ predefined.navContact }</Link>
                                 <button onClick={toggleLanguage} className="navbar-section">{ preset.flag }</button>
@@ -88,8 +89,8 @@ const InnerNavbar: FC<{ isPhantom: boolean, preset: Preset, toggleLanguage: () =
                 <div className={`sm:hidden ${isOpen ? 'block' : 'hidden'} shadow-left shadow-bottom rounded-md mx-2 bg-primary`} id="mobile-menu">
                     <div className={`px-2 pt-2 pb-3 space-y-1 ${isOnTop ? "border-b-2 border-border" : ""}`}>
                         <Link to="/" className="navbar-section-mobile">{ predefined.navHome }</Link>
-                        <Link to="/#projects" className="navbar-section-mobile">{ predefined.navWork }</Link>
-                        <Link to="/blog" className="navbar-section-mobile">{ predefined.navBlogs }</Link>
+                        <Link to="/projects" className="navbar-section-mobile">{ predefined.navWork }</Link>
+                        {/*<Link to="/blog" className="navbar-section-mobile">{ predefined.navBlogs }</Link>*/}
                         <Link to="/#about" className="navbar-section-mobile">{ predefined.navAbout }</Link>
                         <Link to={MailtoURL} className="navbar-section-mobile">{ predefined.navContact }</Link>
                         <div onClick={toggleLanguage} className="w-full navbar-section-mobile cursor-pointer">

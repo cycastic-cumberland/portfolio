@@ -1,14 +1,11 @@
-export type ProjectInfo = {
-    id: string,
-    link: string,
-    repoUrl: string,
-    capsuleUrl: string,
-    translations: Record<string, Record<string, string>>
-}
+import {ProjectDetails} from "../projects.ts";
+
+export type SearchMode = "And" | "Or"
 
 export type ProjectsContextType = {
-    projectInfos: ProjectInfo[],
+    projectInfos: ProjectDetails[],
     trigger1: number,
     invokeTrigger1: () => void,
-    findProject: (id: string) => ProjectInfo | null
+    findProjectById: (id: string) => ProjectDetails | null,
+    findProjectsByTags: (tags: string | string[] | undefined, searchMode: SearchMode) => ProjectDetails[],
 }

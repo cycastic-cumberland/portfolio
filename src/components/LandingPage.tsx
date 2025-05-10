@@ -2,12 +2,12 @@ import {useTranslation} from "../contexts/TranslationContext.tsx";
 import {FC, MutableRefObject, useEffect, useRef} from "react";
 import {Link, useLocation} from "react-router-dom";
 import {GithubPage, MailtoURL, WebsiteSourceCode} from "../constants.ts";
-import {FaGithub, FaRss} from "react-icons/fa";
+import {FaGithub} from "react-icons/fa";
 import {MdOutlineMail} from "react-icons/md";
-import {ProjectInfo} from "../contexts/ProjectsContextsType.ts";
 import {useProjects} from "../contexts/ProjectsContext.tsx";
 import PageLayout from "./PageLayout.tsx";
 import SocialMediaItem from "./SocialMediaItem.tsx";
+import {ProjectDetails} from "../projects.ts";
 
 const getGreeting = (languageSet: Record<string, string>) => {
     const hours = new Date().getHours();
@@ -100,50 +100,50 @@ const SocialMedia = () => {
         <div className={"hidden sm:block"}>
             <div className={"flex flex-wrap mb-5 opacity-0 animate-slidein [--slidein-delay:900ms]"}>
                 <SocialMediaItem text={predefined.smItem1} url={GithubPage} icon={<FaGithub size={20}/>}/>
-                <SocialMediaItem text={predefined.smItem2} url={'/blog'} icon={<FaRss size={20}/>}/>
+                {/*<SocialMediaItem text={predefined.smItem2} url={'/blog'} icon={<FaRss size={20}/>}/>*/}
                 <SocialMediaItem text={predefined.smItem3} url={MailtoURL} icon={<MdOutlineMail size={20}/>}/>
             </div>
         </div>
         <div className={"sm:hidden block"}>
             <div className={"flex flex-wrap justify-center mb-5 opacity-0 animate-slidein [--slidein-delay:500ms]"}>
                 <SocialMediaItem text={predefined.smItem1} url={GithubPage} icon={<FaGithub size={16}/>}/>
-                <SocialMediaItem text={predefined.smItem2} url={'/blog'} icon={<FaRss size={16}/>}/>
+                {/*<SocialMediaItem text={predefined.smItem2} url={'/blog'} icon={<FaRss size={16}/>}/>*/}
                 <SocialMediaItem text={predefined.smItem3} url={MailtoURL} icon={<MdOutlineMail size={16}/>}/>
             </div>
         </div>
     </>
 }
 
-const ProjectShowcase: FC<{ info: ProjectInfo }> = ({ info }) => {
+const ProjectShowcase: FC<{ info: ProjectDetails }> = ({ info }) => {
     const { predefined } = useTranslation()
 
     return (
         <>
-            <Link to={info.repoUrl} className={"sm:block hidden group w-96 aspect-square"}>
+            <Link to={info.repoUrl ?? "#"} className={"sm:block hidden group w-96 aspect-square"}>
                 <div className={"px-2 py-2 w-full h-full"}>
                     <div className={"project-card"}>
                         <img className={"rounded-tl-2xl rounded-tr-2xl h-48 object-cover"} alt={info.id} src={info.capsuleUrl} />
                         <div className={"mt-2 mx-2"}>
                             <h1 className={"project-name"}>
-                                { info.translations[predefined.id].name }
+                                { info.shortDescriptions[predefined.id].groupName }
                             </h1>
                             <p className={"project-description mt-2"}>
-                                { info.translations[predefined.id].shortDescription }
+                                { info.shortDescriptions[predefined.id].description }
                             </p>
                         </div>
                     </div>
                 </div>
             </Link>
-            <Link to={info.repoUrl} className={"sm:hidden block group w-full min-h-fit aspect-square"}>
+            <Link to={info.repoUrl ?? "#"} className={"sm:hidden block group w-full min-h-fit aspect-square"}>
                 <div className={"px-2 py-2 w-full h-full"}>
                     <div className={"project-card"}>
                         <img className={"rounded-tl-2xl rounded-tr-2xl h-1/2 object-cover"} alt={info.id} src={info.capsuleUrl} />
                         <div className={"mt-2 mx-2"}>
                             <h1 className={"project-name"}>
-                                { info.translations[predefined.id].name }
+                                { info.shortDescriptions[predefined.id].name }
                             </h1>
                             <h5 className={"project-description my-2"}>
-                                { info.translations[predefined.id].shortDescription }
+                                { info.shortDescriptions[predefined.id].description }
                             </h5>
                         </div>
                     </div>

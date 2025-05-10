@@ -43,10 +43,16 @@
         @apply text-font hover:text-primary hover:bg-highlight block px-3 py-2 rounded-md text-base font-medium linear-animation
     }
     .text-social-media {
-        @apply text-font text-sm font-medium group-hover:text-primary
+        @apply text-font text-sm font-medium hover:text-primary
+    }
+    .text-link-chip {
+        @apply text-primary text-sm font-medium
     }
     .social-media-box {
         @apply flex justify-center items-center flex-row hover:bg-highlight linear-animation mr-5 px-3 py-2 rounded-xl
+    }
+    .link-chip-box {
+        @apply flex justify-center items-center flex-row bg-white hover:bg-gray-300 linear-animation px-3 py-2 rounded-xl
     }
     .text-about {
         @apply text-font text-2xl
@@ -62,6 +68,9 @@
     }
     .project-card {
         @apply w-full h-full flex flex-col border-2 border-border rounded-2xl bg-card group-hover:bg-border linear-animation
+    }
+    .full-project-card {
+        @apply w-full h-full flex flex-row border-2 border-border rounded-2xl bg-card group-hover:bg-border linear-animation
     }
     .project-name {
         @apply flex-shrink-0 text-font text-xl font-bold group-hover:text-highlight linear-animation
